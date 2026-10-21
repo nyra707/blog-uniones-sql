@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Del Cosmos a las Bases de Datos Relacionales - Blog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="contenedor">
+  <div id="cabecera">
+    <a href="#" class="logo">
+      <svg class="logo-icono" width="44" height="38" viewBox="0 0 44 38" aria-hidden="true">
+        <ellipse cx="10" cy="17" rx="9" ry="7" fill="#fff"/>
+        <polygon points="6,22 4,28 12,23" fill="#fff"/>
+        <circle cx="31" cy="8" r="5" fill="#fff"/>
+        <rect x="26" y="15" width="11" height="20" rx="5" fill="#fff"/>
+      </svg>
+      <span class="logo-texto">
+        <span class="logo-nombre">spacehey</span>
+        <span class="logo-lema">a space for friends</span>
+      </span>
+    </a>
+    <form id="form-busqueda" autocomplete="off">
+      <label for="campo-busqueda">Search Blog Entries:</label>
+      <input type="text" id="campo-busqueda">
+      <button type="submit" class="boton">Search</button>
+    </form>
+    <div class="cab-links">
+      <div><a href="#">Help</a> | <a href="#">LogOut</a></div>
+      <div><span class="corazon">&#10084;</span> <a href="#">Support us</a></div>
+    </div>
+  </div>
+  <div id="menu">
+    <a href="#">&#128226; Home</a>
+    <a href="#">Browse</a>
+    <a href="#">Search</a>
+    <a href="#">Messages</a>
+    <a href="#" class="menu-activo">Blog</a>
+    <a href="#">Bulletins</a>
+    <a href="#">Forum</a>
+    <a href="#">Groups</a>
+    <a href="#">Layouts</a>
+    <a href="#">Favs</a>
+    <a href="#">Invite</a>
+    <a href="#">App</a>
+    <a href="#">Shop</a>
+    <a href="#">About</a>
+  </div>
+  <div id="principal">
+    <div id="perfil">
+      <img src="foto.jpg" width="110" height="110" alt="Foto de perfil de Paloma Vega Pavez">
+      <p><b>Nombre:</b> Paloma Vega Pavez</p>
+      <p><b>Asignatura:</b> Base de Datos Estructuradas</p>
+      <p><b>Carrera:</b> Ingeniería en Informática</p>
+      <p><b>Unidad 2:</b> Consultas avanzadas sobre una o más tablas - Semana 9</p>
+    </div>
+    <div id="entrada">
+      <div id="articulo">
+        <h1>Del Cosmos a las Bases de Datos Relacionales</h1>
+        <h2 class="seccion">Introducción</h2>
+        <p>Cuando observamos el cielo nocturno, vemos estrellas, planetas, galaxias y constelaciones que parecen estar desconectadas. Sin embargo, en la astronomía, toda esta información se almacena de forma ordenada en bases de datos relacionales masivas (como los archivos de la NASA o la Agencia Espacial Europea). En una base de datos, los datos no caben en una sola tabla gigante. Se dividen en tablas independientes (por ejemplo, una tabla para las <code>Estrellas</code>, otra para las <code>Constelaciones</code> y otra para los <code>Observatorios</code>).</p>
+        <p>Para responder preguntas como <em>"¿Qué estrellas pertenecen a la constelación de Orión y desde qué observatorio se descubrieron?"</em> necesitamos conectar estas tablas. Aquí es donde entran las herramientas de unión en Oracle SQL, permitiéndonos relacionar la información dispersa tal como los astrónomos conectan puntos para formar constelaciones.</p></br></br>
+        <div id="visor">
+          <div class="visor-barra">
+            <button type="button" id="btn-anterior" class="boton flecha" title="Ítem anterior" aria-label="Ítem anterior">&#9668;</button>
+            <div class="visor-centro">
+              <span id="contador">Ítem 1 de 3</span>
+              <span class="puntos">
+                <a href="#" data-item="0" class="punto">1</a> |
+                <a href="#" data-item="1" class="punto">2</a> |
+                <a href="#" data-item="2" class="punto">3</a>
+              </span>
+            </div>
+            <button type="button" id="btn-siguiente" class="boton flecha" title="Ítem siguiente" aria-label="Ítem siguiente">&#9658;</button>
+          </div>
+          <div class="item">
+            <h3>Concepto de Uniones y Uso de Alias (Aplicado a Estrellas y Constelaciones)</h3>
+            <p>Cuando necesitamos consultar datos que provienen de dos tablas independientes, por ejemplo, la tabla <code>Estrellas</code> y la tabla <code>Constelaciones</code>, el motor de base de datos necesita un enlace. Para lograr esto, utilizamos la sintaxis estándar de uniones en SQL:1999. Al unir tablas, es muy común que ambas compartan nombres de columnas (como <code>ID_Constelacion</code>), por lo que debemos anteponer el nombre de la tabla o un <strong>prefijo de tabla</strong> (cualificación) para evitar ambigüedades en el servidor de Oracle.</p>
+            <p>Como escribir nombres largos de tablas en cada consulta consume memoria innecesaria, Oracle nos permite utilizar <strong>alias de tabla</strong> (por ejemplo, nombrar a <code>Estrellas</code> como <code>e</code> y a <code>Constelaciones</code> como <code>c</code>). Estos alias son pequeños apodos válidos únicamente durante la ejecución de esa sentencia <code>SELECT</code> específica.</p>
+            <div class="figura">
+                <a href="https://imgbb.com/"><img src="https://i.ibb.co/qLvxyk0M/uso-de-alias.png" alt="uso de alias" border="0"></a>
+            </div>
+            <div class="fuentes">
+              <b>Fuentes:</b>
+              <ul>
+                <li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Joins.html" target="_blank" rel="noopener">Oracle Corporation. (2023). Database SQL Language Reference: Joins. Oracle Help Center.</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="item" hidden>
+            <h3>NATURAL JOIN, USING y ON - Mapeo de Cúmulos Estelares</h3>
+            <p>Para automatizar la forma en que unimos nuestras tablas astronómicas, Oracle nos ofrece diferentes cláusulas:</p>
+            <ol>
+              <li><strong>NATURAL JOIN:</strong> Une dos tablas basándose en aquellas columnas que se llaman exactamente igual y tienen el mismo tipo de dato en ambas tablas. Si las columnas tienen el mismo nombre pero distinto tipo de dato, producirá un error.</li>
+              <li><strong>USING:</strong> Nos permite especificar qué columna con nombre idéntico (por ejemplo, <code>ID_Galaxia</code>) se usará para realizar una unión igualitaria. No debemos anteponerle un nombre de tabla a esa columna en ninguna otra parte de la consulta.</li>
+              <li><strong>ON:</strong> Es la más flexible y utilizada. Se emplea con la instrucción <code>JOIN</code> para unir tablas mediante una condición personalizada (por ejemplo, <code>ON e.id_estrella = o.estrella_id</code>), permitiendo relacionar columnas que tengan nombres diferentes e incluso realizar uniones de tres direcciones (como vincular <code>Estrellas</code>, <code>Constelaciones</code> y <code>Telescopios</code> en una sola gran consulta). También podemos combinarla con <code>WHERE</code> para aplicar filtros adicionales (por ejemplo, mostrar solo estrellas con un brillo determinado).</li>
+            </ol>
+            <div class="figura">
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20250826161511955919/inner_join.webp" alt="uso de alias" border="0"></a>
+            </div>
+            <div class="fuentes">
+              <b>Fuentes:</b>
+              <ul>
+                <li><a href="https://pds.nasa.gov/datastandards/documents/" target="_blank" rel="noopener">NASA Planetary Data System. (2025). Relational Database Structures for Astronomical Catalogs and Observations. NASA Technical Reports.</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="item" hidden>
+            <h3>Autouniones y Uniones No Igualitarias</h3>
+            <p>En ocasiones, una tabla necesita relacionarse <strong>consigo misma</strong>. A esto lo llamamos <strong>autounión</strong>. En astronomía, por ejemplo, podemos tener una tabla de cuerpos celestes llamada <code>Astros</code> donde un objeto principal ejerce gravedad sobre un satélite o exoplaneta secundario. Para consultar el nombre del astro principal y su satélite en una sola vista, duplicamos la tabla usando alias (por ejemplo, <code>astros w</code> para el satélite y <code>astros m</code> para el astro principal) y las relacionamos con <code>ON</code> vinculando el identificador del cuerpo central.</p>
+            <p>Por otro lado, una <strong>unión no igualitaria</strong> ocurre cuando la condición de unión contiene un operador diferente al de igualdad (<code>=</code>), como por ejemplo <code>&gt;</code>, <code>&lt;</code>, o rangos entre valores. Un ejemplo sería relacionar la tabla de <code>Estrellas</code> con una tabla de <code>clases_espectrales</code> (que define rangos de temperatura o magnitud mediante columnas de valor mínimo y máximo), permitiendo clasificar a cada estrella según su brillo y temperatura.</p>
+            <div class="figura">
+                <a href="https://ibb.co/rK71DD92"><img src="https://i.ibb.co/LDk2VVKd/autouni-n-union-no-igualitaria.png" alt="autouni-n-union-no-igualitaria" border="0"></a>
+            </div>
+            <div class="fuentes">
+              <b>Fuentes:</b>
+              <ul>
+                <li><a href="https://soclibrary.futa.edu.ng/books/2019%20Database%20Systems%20Design,%20Implementation,%20and%20Management%20by%20Carlos%20Coronel%20Steven%20Morris%20(z-lib.org).pdf" target="_blank" rel="noopener">Coronel, C., & Morris, S. (2019). Database Systems: Design, Implementation, & Management (13th ed.). Cengage Learning.</a></li>
+                <li><a href="https://gea.esac.esa.int/archive/documentation/GDR3/Gaia_archive/chap_datamodel/" target="_blank" rel="noopener">European Space Agency [ESA]. (2024). Gaia Archive: SQL Queries and Table Joins for Stellar Kinematics. ESA Science & Technology.</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </br></br><h2 class="seccion">Conclusión y Opinión</h2>
+        <p>El estudio de las uniones en bases de datos relacionales con Oracle nos demuestra que la estructuración de la información es parte fundamental de cualquier software. Necesitamos dominar herramientas como <code>JOIN</code>, <code>ON</code>, <code>USING</code>, los alias y las autouniones para que los sistemas de información funcionen con precisión y rapidez.</p>
+        <p>En lo personal, creo que aprender a relacionar tablas hace que manejar datos sea mucho más fácil. Una vez que entiendes la lógica, puedes organizar la información para cualquier tipo de proyecto informático.</p>
+      </div>
+      <p id="mensaje-busqueda" hidden></p>
+      <div id="kudos">
+        <span class="rojo" id="num-kudos">0</span> <b>Kudos</b>
+        <p><a href="#" id="dar-1">Give 1 Kudos</a> &mdash; <a href="#" id="dar-2">Give 2 Kudos</a></p>
+      </div>
+      <div id="comentarios">
+        <b>Comments</b>
+        <p class="resumen-coment">Displaying <span class="rojo" id="coment-vistos">0</span> of <span class="rojo" id="coment-total">0</span> comments ( <a href="#" id="ver-todos">View all</a> | <a href="#" id="abrir-form">Add Comment</a> )</p>
+        <div id="lista-comentarios"></div>
+        <form id="form-comentario" hidden>
+          <p><label for="coment-nombre">Nombre:</label><br>
+          <input type="text" id="coment-nombre" maxlength="40"></p>
+          <p><label for="coment-texto">Comentario:</label><br>
+          <textarea id="coment-texto" rows="4" maxlength="500" required></textarea></p>
+          <button type="submit" class="boton">Post Comment</button>
+          <button type="button" class="boton" id="cancelar-coment">Cancel</button>
+        </form>
+        <button type="button" class="boton" id="btn-add-coment">Add a Comment</button>
+      </div>
+    </div>
+  </div>
+</div>
+<p id="pie">Trabajo académico con diseño inspirado en SpaceHey. No está afiliado a SpaceHey.</p>
+<script src="script.js"></script>
+</body>
+</html>

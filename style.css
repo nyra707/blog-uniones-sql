@@ -1,0 +1,443 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #e1e1e1;
+  font-family: Verdana, Tahoma, Arial, sans-serif;
+  font-size: 13px;
+  color: #000;
+}
+
+a {
+  color: #1e3fb5;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+code {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  background: #eaf1fd;
+  padding: 0 3px;
+}
+
+#contenedor {
+  width: 810px;
+  max-width: 100%;
+  margin: 0 auto;
+  background: #fff;
+}
+
+
+.boton {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #000;
+  background: #efefef;
+  border: 1px solid #767676;
+  border-radius: 2px;
+  padding: 1px 7px;
+  cursor: pointer;
+}
+
+.boton:hover {
+  background: #e5e5e5;
+  border-color: #4f4f4f;
+}
+
+.boton:active {
+  background: #d4d4d4;
+}
+
+#cabecera {
+  background: #1d4ed8;
+  color: #fff;
+  min-height: 71px;
+  padding: 10px 16px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.logo:hover {
+  text-decoration: none;
+}
+
+.logo-icono {
+  margin-right: 6px;
+}
+
+.logo-texto {
+  display: block;
+  line-height: 1;
+}
+
+.logo-nombre {
+  display: block;
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+  font-size: 25px;
+  letter-spacing: 1px;
+}
+
+.logo-lema {
+  display: block;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+#form-busqueda {
+  margin-top: 2px;
+  font-size: 12px;
+}
+
+#form-busqueda label {
+  margin-right: 4px;
+}
+
+#campo-busqueda {
+  width: 168px;
+  font-size: 12px;
+  padding: 1px 2px;
+  border: 1px solid #767676;
+}
+
+.cab-links {
+  text-align: right;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.cab-links a {
+  color: #fff;
+}
+
+.corazon {
+  color: #ff4a4a;
+}
+
+#menu {
+  background: #6ea4f6;
+  text-align: center;
+  padding: 5px 4px 6px;
+  line-height: 15px;
+  font-size: 13px;
+}
+
+#menu a {
+  color: #fff;
+  display: inline-block;
+  padding: 0 6px;
+  border-left: 1px solid #fff;
+}
+
+#menu a:first-child {
+  border-left: none;
+}
+
+.menu-activo {
+  font-weight: bold;
+}
+
+#principal {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 16px 10px 30px;
+}
+
+#perfil {
+  width: 142px;
+  flex: none;
+  background: #dbe9fe;
+  border: 1px solid #6aa0f0;
+  padding: 5px;
+}
+
+#perfil img {
+  display: block;
+  width: 110px;
+  height: 110px;
+  margin-bottom: 8px;
+}
+
+#perfil p {
+  margin: 0 0 8px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+#entrada {
+  flex: 1;
+  min-width: 0;
+}
+
+h1 {
+  font-family: "Montserrat", "Trebuchet MS", Verdana, sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 18px;
+}
+
+h2.seccion {
+  color: #7d4cd8;
+  font-style: italic;
+  font-size: 13px;
+  margin: 26px 0 10px;
+}
+
+#articulo p {
+  line-height: 1.55;
+  margin: 0 0 12px;
+}
+
+#visor {
+  border: 1px solid #8fb4ee;
+  background: #f5f9ff;
+  margin-bottom: 8px;
+}
+
+.visor-barra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #dbe9fe;
+  border-bottom: 1px solid #8fb4ee;
+  padding: 6px 8px;
+}
+
+.visor-centro {
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+#contador {
+  display: block;
+  font-weight: bold;
+}
+
+.punto.activo {
+  font-weight: bold;
+  color: #000;
+  text-decoration: underline;
+}
+
+.flecha {
+  width: 38px;
+  padding: 3px 0;
+  font-size: 14px;
+}
+
+.item {
+  padding: 12px 14px 14px;
+}
+
+.item[hidden] {
+  display: none;
+}
+
+.item h3 {
+  font-size: 15px;
+  color: #1a3a9c;
+  margin: 0 0 10px;
+  line-height: 1.3;
+}
+
+.item p,
+.item ol {
+  line-height: 1.55;
+  margin: 0 0 12px;
+}
+
+.item ol {
+  padding-left: 22px;
+}
+
+.item li {
+  margin-bottom: 8px;
+}
+
+.figura {
+  margin: 14px 0;
+}
+
+.espacio-imagen {
+  border: 2px dashed #8fb4ee;
+  background: #fff;
+  color: #6f86b0;
+  font-style: italic;
+  text-align: center;
+  height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.figura img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border: 1px solid #8fb4ee;
+}
+
+#articulo .pie-figura {
+  font-size: 11px;
+  color: #555;
+  text-align: center;
+  margin: 5px 0 0;
+}
+
+.fuentes {
+  font-size: 11px;
+  line-height: 1.4;
+  color: #444;
+  border-top: 1px dashed #8fb4ee;
+  padding-top: 7px;
+  margin-top: 12px;
+}
+
+.fuentes ul {
+  margin: 4px 0 0;
+  padding-left: 16px;
+}
+
+.fuentes li {
+  margin-bottom: 4px;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+mark.resaltado {
+  background: #fff176;
+  color: #000;
+}
+
+#mensaje-busqueda {
+  background: #fff9c4;
+  border: 1px solid #e0cf55;
+  padding: 5px 8px;
+  margin: 10px 0 0;
+  font-size: 12px;
+}
+
+#mensaje-busqueda[hidden] {
+  display: none;
+}
+
+.rojo {
+  color: #cc0000;
+  font-weight: bold;
+}
+
+#kudos {
+  margin-top: 30px;
+}
+
+#kudos p {
+  margin: 8px 0 0;
+}
+
+#comentarios {
+  margin-top: 20px;
+  border-top: 2px solid #999;
+  padding: 12px 0 0 7px;
+}
+
+.resumen-coment {
+  margin: 14px 0;
+}
+
+#lista-comentarios .coment {
+  border: 1px solid #b7cdf3;
+  background: #f5f9ff;
+  padding: 6px 8px;
+  margin-bottom: 8px;
+}
+
+#lista-comentarios .coment-cab {
+  font-size: 11px;
+  color: #555;
+  margin-bottom: 3px;
+}
+
+#lista-comentarios .coment-cab b {
+  color: #1e3fb5;
+}
+
+#lista-comentarios .coment-texto {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+#form-comentario {
+  margin: 10px 0;
+}
+
+#form-comentario[hidden] {
+  display: none;
+}
+
+#form-comentario input[type="text"],
+#form-comentario textarea {
+  width: 100%;
+  max-width: 420px;
+  font-family: Verdana, Tahoma, Arial, sans-serif;
+  font-size: 12px;
+  border: 1px solid #767676;
+  padding: 3px;
+}
+
+#form-comentario label {
+  font-size: 12px;
+}
+
+#btn-add-coment {
+  margin-top: 6px;
+  padding: 2px 8px;
+}
+
+#pie {
+  text-align: center;
+  font-size: 10px;
+  color: #333;
+  margin: 14px 0 20px;
+}
+
+@media (max-width: 720px) {
+  #cabecera {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  #principal {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  #perfil {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 23px;
+  }
+
+  .item {
+    padding: 10px;
+  }
+}
